@@ -1,5 +1,4 @@
 import { authorizeAccount } from "./authorizeAccount";
-import { getFileUrl } from "./getFileUrl";
 import { getFilesFromBucket, type BackBlazeFile } from "./getFilesFromBucket";
 
 export async function fetchFiles(): Promise<BackBlazeFile[]> {
