@@ -1,6 +1,5 @@
 ---
 import { fetchFiles } from "../utils/fetchFiles";
-import { Image } from "astro:assets";
 
 import Layout from "../layouts/Layout.astro";
 import { getFileUrl } from "../utils/getFileUrl";
@@ -20,11 +19,10 @@ const files = await fetchFiles();
 			<div class="max-w-7xl flex flex-wrap gap-8">
 				{
 					files.map(({ fileName }, index) => (
-						<Image
+						<img
 							width="400"
 							height="534"
 							loading={index > LAZY_LOAD_IMAGE_THRESHOLD ? "lazy" : "eager"}
-							format="webp"
 							decoding="async"
 							src={getFileUrl(fileName)}
 							alt={fileName}
