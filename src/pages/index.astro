@@ -10,24 +10,31 @@ const files = await fetchFiles();
 ---
 
 <Layout title="Best License Plates">
-	<main class="flex justify-center bg-neutral-900 pt-16">
-		<div class="max-w-7xl flex flex-wrap gap-8">
-			{
-				files.map(({ fileName }, index) => (
-					<Image
-						width="400"
-						height="534"
-						loading={index > LAZY_LOAD_IMAGE_THRESHOLD ? "lazy" : "eager"}
-						format="webp"
-						decoding="async"
-						src={getFileUrl(fileName)}
-						alt={fileName}
-						class:list={[
-							"border border-neutral-800 rounded-lg shadow-lg shadow-neutral-800 inline-block",
-						]}
-					/>
-				))
-			}
+	<main class="flex justify-center bg-neutral-900 pt-8">
+		<div class="flex flex-col gap-4">
+			<h1 class="text-2xl uppercase text-neutral-400 tracking-widest font-bold">Best Plates</h1>
+			<p class="text-neutral-500 font-semibold">
+				My personal collection of the best vanity license plates I've found out and about in the
+				world.
+			</p>
+			<div class="max-w-7xl flex flex-wrap gap-8">
+				{
+					files.map(({ fileName }, index) => (
+						<Image
+							width="400"
+							height="534"
+							loading={index > LAZY_LOAD_IMAGE_THRESHOLD ? "lazy" : "eager"}
+							format="webp"
+							decoding="async"
+							src={getFileUrl(fileName)}
+							alt={fileName}
+							class:list={[
+								"border border-neutral-800 rounded-lg shadow-lg shadow-neutral-800 inline-block",
+							]}
+						/>
+					))
+				}
+			</div>
 		</div>
 	</main>
 </Layout>
